@@ -36,7 +36,7 @@ st.markdown(
 )
 
 # Add background music
-audio_file = open("https://drive.google.com/file/d/1ac21avIrrDSArfKznyNavO1UZCVgkCbh/view?usp=drive_link", "rb")
+audio_file = open("https://github.com/underthebed1102/bubub/blob/ac4b6c06604ba530c10d039c821654ec08b4ad23/ost%20mancing%20mania.mp3", "rb")
 audio_bytes = audio_file.read()
 st.audio(audio_bytes, format="audio/mp3", start_time=0)
 
