@@ -1,6 +1,7 @@
 import streamlit as st
 from PIL import Image
 import base64
+import io
 import requests
 
 def load_image(image_url):
@@ -12,7 +13,7 @@ def load_image(image_url):
 st.set_page_config(page_title="Semangat BUBUB!!", page_icon=":heart:")
 
 # Load background image
-bg_image = load_image("https://drive.google.com/file/d/1VK6uShpu7kbYOcCQBAsvp79MDeCfUN8j/view?usp=drive_link")
+bg_image = load_image("https://your-image-url.com/your-image.jpg")
 
 # Convert image to bytes
 image_bytes = io.BytesIO()
@@ -36,9 +37,9 @@ st.markdown(
 )
 
 # Add background music
-audio_file = open("https://github.com/underthebed1102/bubub/blob/ac4b6c06604ba530c10d039c821654ec08b4ad23/ost%20mancing%20mania.mp3", "rb")
+audio_file = open(r"C:\Users\LENOVO\Semangatin bubub\ost mancing mania.mp3", "rb")
 audio_bytes = audio_file.read()
 st.audio(audio_bytes, format="audio/mp3", start_time=0)
 
 # Add text message
-st.markdown("<h1 style='text-align: center; color: white;'>Semangat bubub ku besok sidangnya!</h1>", unsafe_allow_html=
+st.markdown("<h1 style='text-align: center; color: white;'>Semangat bubub ku besok sidangnya!</h1>", unsafe_allow_html=True)
