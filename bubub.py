@@ -1,15 +1,23 @@
 import streamlit as st
 from PIL import Image
 import base64
+import requests
+
+def load_image(image_url):
+    response = requests.get(image_url)
+    img = Image.open(io.BytesIO(response.content))
+    return img
 
 # Set page title and favicon
 st.set_page_config(page_title="Semangat BUBUB!!", page_icon=":heart:")
 
 # Load background image
-bg_image = Image.open("https://github.com/underthebed1102/bubub/blob/ba37d89cdd5d839f6f19f7d12a3e07018523342b/IMG-20230505-WA0007.jpg")
+bg_image = load_image("https://drive.google.com/file/d/1VK6uShpu7kbYOcCQBAsvp79MDeCfUN8j/view?usp=drive_link")
 
 # Convert image to bytes
-image_bytes = bg_image.tobytes()
+image_bytes = io.BytesIO()
+bg_image.save(image_bytes, format="JPG")
+image_bytes = image_bytes.getvalue()
 
 # Encode image bytes to base64
 base64_image = base64.b64encode(image_bytes).decode()
@@ -28,12 +36,9 @@ st.markdown(
 )
 
 # Add background music
-audio_file = open("https://github.com/underthebed1102/bubub/blob/7c2678fbf0d41906f2017e84eae79dead2f941d5/ost%20mancing%20mania.mp3", "rb")
+audio_file = open("https://drive.google.com/file/d/1ac21avIrrDSArfKznyNavO1UZCVgkCbh/view?usp=drive_link", "rb")
 audio_bytes = audio_file.read()
 st.audio(audio_bytes, format="audio/mp3", start_time=0)
 
 # Add text message
-st.markdown("<h1 style='text-align: center; color: white;'>Semangat bubub ku besok sidangnya!</h1>", unsafe_allow_html=True)
-
-# Display swans creating love sign
-#st.write("Insert code to display swans creating love sign here")
+st.markdown("<h1 style='text-align: center; color: white;'>Semangat bubub ku besok sidangnya!</h1>", unsafe_allow_html=
